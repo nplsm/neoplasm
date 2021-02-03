@@ -19,7 +19,7 @@ async function bootstrap() {
   try {
     const mongoose = await connect(MONGO_DB_URL)
 
-    await seedDatabase()
+    // await seedDatabase()
 
     const schema = await buildSchema({
       resolvers: [

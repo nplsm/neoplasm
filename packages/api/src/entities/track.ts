@@ -1,5 +1,5 @@
 import { prop, Ref, getModelForClass } from "@typegoose/typegoose"
-import { ObjectType, Field, Int } from "type-graphql"
+import { ObjectType, Field, Int, ID } from "type-graphql"
 import { ObjectID } from "mongodb"
 
 import { Release } from "./release"
@@ -8,6 +8,7 @@ import { TrackSource } from "./track-source"
 
 @ObjectType()
 export class Track {
+  @Field(() => ID)
   readonly _id: ObjectID
 
   @Field()

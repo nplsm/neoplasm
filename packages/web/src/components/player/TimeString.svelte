@@ -3,7 +3,9 @@
   export let showHours: boolean = false
 
   $: timeNegative = time < 0
-  $: date = new Date(0, 0, 0, 0, 0, Math.abs(time))
+  $: date = isNaN(time)
+    ? new Date(0, 0, 0, 0, 0, Math.abs(0))
+    : new Date(0, 0, 0, 0, 0, Math.abs(time))
   $: hours = date.getHours()
   $: minutes = showHours
     ? date.getMinutes().toString().padStart(2, "0")

@@ -14,7 +14,7 @@ export class Item {
   slug: string
 
   @Field(() => Release)
-  @prop({ required: true, type: () => Release })
+  @prop({ required: true, ref: () => Release })
   release: Ref<Release>
 
   @Field(() => [ItemCopy])

@@ -16,6 +16,10 @@ export class Release {
   @prop({ required: true })
   title: string
 
+  @Field()
+  @prop({ required: true })
+  cover: string
+
   @Field(() => [ArtistAlias])
   @prop({ required: true, type: () => ArtistAlias })
   artists: ArtistAlias[]

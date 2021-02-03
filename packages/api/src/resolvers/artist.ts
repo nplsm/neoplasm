@@ -11,6 +11,6 @@ export class ArtistResolver {
 
   @Query(() => Artist, { nullable: true })
   async artist(@Arg("slug", () => String) slug: string): Promise<Artist> {
-    return await ArtistModel.find({ slug })
+    return await ArtistModel.findOne({ slug })
   }
 }

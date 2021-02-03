@@ -24,7 +24,8 @@
   afterUpdate(() => {
     const track = tracks[currentTrackIndex]
     if (!track.audio) {
-      const audio = new Audio(track.src)
+      const src = track.sources[0].src
+      const audio = new Audio(src)
       audio.onpause = () => {
         paused = true
       }
@@ -103,11 +104,11 @@
   }
 
   async function handleChangeTrack(id) {
-    if (currentTrack.id !== id) {
+    if (currentTrack._id !== id) {
       const wasPaused = paused
       currentAudio.pause()
       currentAudio.currentTime = 0
-      currentTrackIndex = tracks.findIndex((track) => track.id === id)
+      currentTrackIndex = tracks.findIndex((track) => track._id === id)
       currentTime = 0
       if (!wasPaused) {
         await tick()
@@ -117,7 +118,7 @@
   }
 </script>
 
-<img src={cover.src} alt={title} />
+<img src={cover} alt={title} />
 
 <div class="current_track">
   <h1 class="track">
@@ -145,12 +146,12 @@
 
 <div class="tracklist">
   <ol>
-    {#each tracks as track (track.id)}
+    {#each tracks as track (track._id)}
       <PlayerTrack
         {track}
-        current={track.id === currentTrack.id}
+        current={track._id === currentTrack._id}
         {paused}
-        on:click={() => handleChangeTrack(track.id)}
+        on:click={() => handleChangeTrack(track._id)}
       />
     {/each}
   </ol>

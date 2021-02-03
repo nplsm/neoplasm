@@ -13,11 +13,11 @@ export class ReleaseResolver {
 
   @Query(() => Release, { nullable: true })
   async release(@Arg("slug", () => String) slug: string): Promise<Release> {
-    return await ReleaseModel.find({ slug })
+    return await ReleaseModel.findOne({ slug })
   }
 
   @FieldResolver(() => [Track], { nullable: true })
-  async tracks(@Root() release: Release): Promise<Promise<Track>[]> {
+  async tracks(@Root() release: Release): Promise<Track[]> {
     return await TrackModel.find({ release: release._id })
   }
 }

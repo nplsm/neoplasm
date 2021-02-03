@@ -12,10 +12,10 @@ export class ItemResolver {
 
   @Query(() => Item, { nullable: true })
   async item(@Arg("slug", () => String) slug: string): Promise<Item> {
-    return await ItemModel.find({ slug })
+    return await ItemModel.findOne({ slug })
   }
 
-  @FieldResolver(() => [Release], { nullable: true })
+  @FieldResolver(() => [Release])
   async release(@Root() item: Item): Promise<Release> {
     return await ReleaseModel.findById(item.release)
   }
