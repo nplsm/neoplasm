@@ -1,0 +1,47 @@
+services:
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+    depends_on:
+      - mongo
+
+  api:
+    image: api
+    build:
+      context: api
+      dockerfile: ./Dockerfile
+    command: npm run start
+    restart: always
+    ports:
+      - 3001:3001
+    environment:
+      PORT: 3001
+      MONGO_DB_URL: mongodb://items:peepee@mongo/items?ssl=false
+    depends_on:
+      - mongo
+
+  web:
+    image: web
+    build:
+      context: web
+      dockerfile: ./Dockerfile
+    command: npm run dev
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - items

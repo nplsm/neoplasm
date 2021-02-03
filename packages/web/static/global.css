@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+}
+
+main {
+  margin: 0 auto;
+  padding: 0rem;
+  max-width: 22rem;
+}
+
+h1,
+h2,
+p {
+  font-family: HelveticaNeue-Thin, Helvetica, sans-serif;
+  margin: 0.5rem;
+  padding: 0rem;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 150%;
+}
