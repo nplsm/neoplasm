@@ -11,7 +11,7 @@ export class ItemResolver {
   }
 
   @Query(() => Item, { nullable: true })
-  async item(@Arg("slug", () => String) slug: string): Promise<Item> {
+  async item(@Arg("slug", () => String) slug?: string): Promise<Item> {
     return await ItemModel.findOne({ slug })
   }
 

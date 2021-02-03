@@ -32,6 +32,8 @@ export async function seedDatabase() {
   const lifeoxetine = await ReleaseModel.create({
     slug: "lifeoxetine",
     title: "Lifeoxetine",
+    cover: "https://cdn.neoplasm.xyz/images/covers/lifeoxetine.jpg",
+    code: "npl0002",
     artists: [
       {
         artist: marblebust._id,
@@ -43,6 +45,8 @@ export async function seedDatabase() {
   const auk = await ReleaseModel.create({
     slug: "a-u-k",
     title: "A U K",
+    cover: "https://cdn.neoplasm.xyz/images/covers/a-u-k.jpg",
+    code: "npl0003",
     artists: [
       {
         artist: ourv._id,

@@ -12,8 +12,15 @@ export class ReleaseResolver {
   }
 
   @Query(() => Release, { nullable: true })
-  async release(@Arg("slug", () => String) slug: string): Promise<Release> {
-    return await ReleaseModel.findOne({ slug })
+  async release(
+    @Arg("slug", () => String, { nullable: true }) slug?: string,
+    @Arg("code", () => String, { nullable: true }) code?: string
+  ): Promise<Release> {
+    if (slug !== undefined) {
+      return await ReleaseModel.findOne({ slug })
+    } else if (code !== undefined) {
+      return await ReleaseModel.findOne({ code })
+    }
   }
 
   @FieldResolver(() => [Track], { nullable: true })

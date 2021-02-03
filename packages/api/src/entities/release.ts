@@ -18,6 +18,10 @@ export class Release {
 
   @Field()
   @prop({ required: true })
+  code: string
+
+  @Field()
+  @prop({ required: true })
   cover: string
 
   @Field(() => [ArtistAlias])
