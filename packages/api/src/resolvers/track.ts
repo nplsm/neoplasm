@@ -9,9 +9,4 @@ export class TrackResolver {
   async tracks(): Promise<Track[]> {
     return await TrackModel.find({})
   }
-
-  @FieldResolver(() => [TrackSource], { nullable: true })
-  async sources(@Root() track: Track): Promise<Promise<TrackSource>[]> {
-    return await TrackSourceModel.find({ track: track._id })
-  }
 }

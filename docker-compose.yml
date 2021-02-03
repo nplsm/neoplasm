@@ -22,7 +22,7 @@ services:
   api:
     image: api
     build:
-      context: api
+      context: packages/api
       dockerfile: ./Dockerfile
     command: npm run start
     restart: always
@@ -37,11 +37,11 @@ services:
   web:
     image: web
     build:
-      context: web
+      context: packages/web
       dockerfile: ./Dockerfile
     command: npm run dev
     restart: always
     ports:
       - 3000:3000
     depends_on:
-      - items
+      - api

@@ -4,6 +4,7 @@ import { ObjectID } from "mongodb"
 
 import { Release } from "./release"
 import { ArtistAlias } from "./artist-alias"
+import { TrackSource } from "./track-source"
 
 @ObjectType()
 export class Track {
@@ -22,12 +23,16 @@ export class Track {
   release: Ref<Release>
 
   @Field(() => [ArtistAlias])
-  @prop({ required: true, ref: () => ArtistAlias })
-  artists: Ref<ArtistAlias>[]
+  @prop({ required: true, type: () => ArtistAlias })
+  artists: ArtistAlias[]
 
   @Field(() => [ArtistAlias])
-  @prop({ required: true, ref: () => ArtistAlias })
-  featuring: Ref<ArtistAlias>[]
+  @prop({ required: true, type: () => ArtistAlias })
+  featuring: ArtistAlias[]
+
+  @Field(() => [TrackSource])
+  @prop({ required: true, type: () => TrackSource })
+  sources: TrackSource[]
 }
 
 export const TrackModel = getModelForClass(Track)

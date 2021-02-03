@@ -16,15 +16,6 @@ export class ReleaseResolver {
     return await ReleaseModel.find({ slug })
   }
 
-  @FieldResolver(() => [ArtistAlias], { nullable: true })
-  async artists(@Root() release: Release): Promise<Promise<ArtistAlias>[]> {
-    return await Promise.all(
-      release.artists.map(async (id) => {
-        return await ArtistAliasModel.findById(id)
-      })
-    )
-  }
-
   @FieldResolver(() => [Track], { nullable: true })
   async tracks(@Root() release: Release): Promise<Promise<Track>[]> {
     return await TrackModel.find({ release: release._id })

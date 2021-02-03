@@ -9,6 +9,10 @@ import { ItemCopy } from "./item-copy"
 export class Item {
   readonly _id: ObjectID
 
+  @Field()
+  @prop({ required: true })
+  slug: string
+
   @Field(() => Release)
   @prop({ required: true, type: () => Release })
   release: Ref<Release>

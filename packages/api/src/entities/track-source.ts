@@ -15,10 +15,6 @@ export class TrackSource {
   @Field()
   @prop({ required: true })
   type: string
-
-  @Field(() => Track)
-  @prop({ required: true, ref: () => Track })
-  track: Ref<Track>
 }
 
 export const TrackSourceModel = getModelForClass(TrackSource)

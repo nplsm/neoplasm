@@ -114,3 +114,6 @@ yarn-error.log
 *.mp3
 *.oog
 *.wav
+
+# build
+build

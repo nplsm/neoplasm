@@ -17,8 +17,8 @@ export class Release {
   title: string
 
   @Field(() => [ArtistAlias])
-  @prop({ required: true, ref: () => ArtistAlias })
-  artists: Ref<ArtistAlias>[]
+  @prop({ required: true, type: () => ArtistAlias })
+  artists: ArtistAlias[]
 }
 
 export const ReleaseModel = getModelForClass(Release)
