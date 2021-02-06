@@ -40,7 +40,6 @@
       }),
     })
     if (res.status === 200) {
-      console.log("OK")
       const { data } = await res.json()
       const { item } = data
       const { release, copies } = item
@@ -50,7 +49,6 @@
         return { release }
       }
     } else {
-      console.log("BAD")
       this.error(404, "Page not found")
     }
   }
