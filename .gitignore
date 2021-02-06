@@ -116,6 +116,6 @@ yarn-error.log
 *.wav
 
 # build
-build
+*__build__
 
 docker-compose.prod.yml
