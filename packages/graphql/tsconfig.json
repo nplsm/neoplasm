@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2018",
     "module": "commonjs",
-    "outDir": "build",
+    "outDir": "__build__",
     "rootDir": "src",
     "lib": ["es2018", "esnext.asynciterable"],
     "experimentalDecorators": true,

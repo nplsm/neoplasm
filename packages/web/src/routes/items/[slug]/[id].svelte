@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
   export async function preload(page) {
     const { slug, id } = page.params
-    const res = await this.fetch(`http://api:3001/`, {
+    const res = await this.fetch("http://graphql:3001/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,6 +40,7 @@
       }),
     })
     if (res.status === 200) {
+      console.log("OK")
       const { data } = await res.json()
       const { item } = data
       const { release, copies } = item
@@ -49,6 +50,7 @@
         return { release }
       }
     } else {
+      console.log("BAD")
       this.error(404, "Page not found")
     }
   }

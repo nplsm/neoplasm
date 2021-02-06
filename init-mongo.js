@@ -1,12 +1,10 @@
-db = new Mongo().getDB("items")
+db = new Mongo().getDB("neoplasm")
 
 db.createUser({
-  user: "items",
+  user: "neoplasm",
   pwd: "peepee",
   roles: [
-    {
-      role: "readWrite",
-      db: "items",
-    },
+    { role: "readWrite", db: "neoplasm" },
+    { role: "dbAdmin", db: "neoplasm" },
   ],
 })

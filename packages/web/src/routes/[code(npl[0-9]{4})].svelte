@@ -2,7 +2,7 @@
   export async function preload(page) {
     const { code } = page.params
     const { id } = page.query
-    const res = await this.fetch(`http://api:3001/`, {
+    const res = await this.fetch("http://graphql:3001/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,6 @@
         variables: { code },
       }),
     })
-    console.log(code, id)
     if (res.status === 200) {
       const { data } = await res.json()
       const { release } = data

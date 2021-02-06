@@ -19,18 +19,20 @@ services:
     depends_on:
       - mongo
 
-  api:
-    image: api
+  graphql:
+    image: graphql
     build:
-      context: packages/api
+      context: packages/graphql
       dockerfile: ./Dockerfile
-    command: npm run start
+    command: pnpm run dev
     restart: always
+    volumes:
+      - ./packages/graphql/src:/usr/src/app/src
     ports:
       - 3001:3001
     environment:
       PORT: 3001
-      MONGO_DB_URL: mongodb://items:peepee@mongo/items?ssl=false
+      MONGO_DB_URL: mongodb://neoplasm:peepee@mongo/neoplasm?ssl=false
     depends_on:
       - mongo
 
@@ -39,9 +41,13 @@ services:
     build:
       context: packages/web
       dockerfile: ./Dockerfile
-    command: npm run start
+    command: pnpm run dev
     restart: always
+    volumes:
+      - ./packages/web/src:/usr/src/app/src
+
     ports:
       - 3000:3000
+      - 10000:10000
     depends_on:
-      - api
+      - graphql
