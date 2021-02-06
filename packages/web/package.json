@@ -1,7 +1,8 @@
 {
-  "name": "TODO",
-  "description": "TODO",
-  "version": "0.0.1",
+  "name": "@neoplasm/web",
+  "version": "1.0.0",
+  "description": "Neoplasm frontend service",
+  "private": true,
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
@@ -9,6 +10,7 @@
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper"
   },
+  "license": "MIT",
   "dependencies": {
     "compression": "^1.7.4",
     "polka": "next",
@@ -32,12 +34,6 @@
     "@types/polka": "^0.5.2",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-svelte3": "^3.0.0",
-    "prettier": "^2.2.1",
-    "prettier-plugin-svelte": "^2.1.2",
     "rollup": "^2.38.4",
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",

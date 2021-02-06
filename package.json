@@ -1,0 +1,19 @@
+{
+  "name": "neoplasm",
+  "version": "1.0.0",
+  "description": "Neoplasm web services",
+  "private": true,
+  "license": "MIT",
+  "repository": "github:nplsm/neoplasm",
+  "workspaces": [
+    "packages/**"
+  ],
+  "engines": {
+    "node": "^15.7.0",
+    "pnpm": "^5.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "prettier": "^2.2.1"
+  }
+}
