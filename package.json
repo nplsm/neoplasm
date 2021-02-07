@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Neoplasm web services",
   "private": true,
+  "scripts": {
+    "test": "jest"
+  },
   "license": "MIT",
   "repository": "github:nplsm/neoplasm",
   "workspaces": [
@@ -14,6 +17,8 @@
   },
   "devDependencies": {
     "eslint": "^7.19.0",
+    "jest": "^26.6.3",
+    "node-fetch": "^2.6.1",
     "prettier": "^2.2.1"
   }
 }
