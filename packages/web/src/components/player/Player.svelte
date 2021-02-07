@@ -95,11 +95,11 @@
 
   function handleSeeking(e) {
     seeking = true
-    currentTime = e.target.value
+    currentTime = e.detail.newTime
   }
 
   function handleSeek(e) {
-    currentAudio.currentTime = e.target.value
+    currentAudio.currentTime = e.detail.newTime
     seeking = false
   }
 

@@ -13,4 +13,5 @@
   $: seconds = date.getSeconds().toString().padStart(2, "0")
 </script>
 
-{#if timeNegative}-{/if}{#if showHours}{hours}:{/if}{minutes}:{seconds}
+<!-- {#if timeNegative}-{/if} -->
+{#if showHours}{hours}:{/if}{minutes}:{seconds}

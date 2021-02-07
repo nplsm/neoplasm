@@ -7,4 +7,10 @@
   <slot />
 </main>
 
-<style></style>
+<style>
+  main {
+    margin: 0 auto;
+    padding: 0rem;
+    max-width: 22rem;
+  }
+</style>
