@@ -14,7 +14,6 @@
   let currentTime = 0
   let duration = 0
   let paused = true
-  let seeking = false
 
   $: currentTrack = tracks[currentTrackIndex]
   $: currentAudio = currentTrack.audio
@@ -41,9 +40,7 @@
       }
       audio.ontimeupdate = (e) => {
         const audio = e.target
-        if (audio === currentAudio && !seeking) {
-          currentTime = audio.currentTime
-        }
+        currentTime = audio.currentTime
       }
       audio.onloadedmetadata = (e) => {
         duration = e.target.duration
@@ -94,13 +91,11 @@
   }
 
   function handleSeeking(e) {
-    seeking = true
     currentTime = e.detail.newTime
   }
 
   function handleSeek(e) {
     currentAudio.currentTime = e.detail.newTime
-    seeking = false
   }
 
   async function handleChangeTrack(id) {

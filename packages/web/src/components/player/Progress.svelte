@@ -18,7 +18,7 @@
   const dispatch = createEventDispatcher()
 
   function hadlePointerMove(event) {
-    const pointerPositionX = event.clientX - left
+    const pointerPositionX = event.pageX - left
     newTime = (pointerPositionX / width) * duration
     if (newTime > duration) {
       newTime = 0.99 * duration
