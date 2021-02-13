@@ -195,6 +195,8 @@
     align-items: left;
     margin: 0;
     margin-left: 0.2rem;
+    overflow-y: scroll;
+    height: 200px;
   }
 
   ol {

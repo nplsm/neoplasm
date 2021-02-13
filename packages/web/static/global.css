@@ -2,12 +2,13 @@ body {
   margin: 0;
   padding: 0;
   background: #f8f8f8;
+  height: 100%
 }
 
 h1,
 h2,
 p {
-  font-family: HelveticaNeue-Thin, Helvetica, sans-serif;
+  font-family:  "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
   margin: 0.5rem;
   padding: 0rem;
   color: rgba(0, 0, 0, 0.8);

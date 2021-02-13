@@ -67,19 +67,20 @@
     position: relative;
     width: 100%;
     height: 2px;
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
     padding: 0;
     touch-action: none;
+    cursor: pointer;
   }
 
   div.background {
     position: absolute;
     width: 100%;
     height: 2px;
-    margin-top: -1px;
+    /* margin-top: -1px; */
     padding: 0;
     border-radius: 1px;
-    background-color: gray;
+    background-color: #C4C4C4;
   }
 
   div.thumb {
@@ -87,18 +88,19 @@
     width: 8px;
     height: 8px;
     border-radius: 100%;
-    margin-top: -4px;
+    margin-top: -3px;
     margin-left: -4px;
     padding: 0;
-    background-color: black;
+    background-color: #001AFF;
+    cursor: pointer;
   }
 
   div.progress {
     position: absolute;
     height: 2px;
-    margin-top: -1px;
+    /* margin-top: -1px; */
     padding: 0;
     border-radius: 1px;
-    background-color: darkblue;
+    background-color: #001AFF;
   }
 </style>
