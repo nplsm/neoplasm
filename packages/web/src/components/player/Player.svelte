@@ -197,6 +197,8 @@
     margin-left: 0.2rem;
     overflow-y: scroll;
     height: 200px;
+    scroll-behavior: smooth;
+    /* -webkit-mask-image: -webkit-gradient(linear,left 80%,left bottom,from(black),to(rgba(0,0,0,0))) */
   }
 
   ol {
