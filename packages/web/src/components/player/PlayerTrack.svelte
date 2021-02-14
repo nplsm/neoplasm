@@ -32,10 +32,11 @@
 
   li.current {
     font-family: HelveticaNeue, Helvetica, sans-serif;
-    color: rgba(0, 0, 0, 0.8);
+    /* color: rgba(0, 0, 0, 0.8); */
     font-weight: 400;
     font-style: italic;
     /* margin: calc(1em + 10px) 0 calc(1em + 10px) 0; */
     /* transition: margin .1s ease-in-out; */
   }
+
 </style>

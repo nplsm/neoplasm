@@ -3,7 +3,7 @@
 </script>
 
 <main>
-  <Logo />
+  <!-- <Logo /> -->
   <slot />
 </main>
 

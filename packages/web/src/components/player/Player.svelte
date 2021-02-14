@@ -5,6 +5,7 @@
   import PlayerProgressBar from "./PlayerProgressBar.svelte"
   import PlayerTrack from "./PlayerTrack.svelte"
   import TrackString from "./TrackString.svelte"
+  // import SocialLogos from "../../../components/svg/SocialLogos.svelte"
 
   export let tracks = []
   export let cover
@@ -112,7 +113,7 @@
     }
   }
 </script>
-
+<div class='main_block'>
 <img src={cover} alt={title} />
 
 <div class="current_track">
@@ -139,6 +140,10 @@
   />
 </div>
 
+<div class="social">
+  <!-- <SocialLogos /> -->
+</div>
+
 <div class="tracklist">
   <ol>
     {#each tracks as track (track._id)}
@@ -151,12 +156,18 @@
     {/each}
   </ol>
 </div>
+</div>
 
 <style>
+  .main_block {
+    padding: 1rem 0 1rem 0;
+  }
+
   img {
     width: 18.75rem;
     /* max-width: 60rem; */
     padding: 0;
+    /* margin-top: 1rem; */
     margin: 0 auto;
     display: block;
     border-radius: 10px;
@@ -189,20 +200,32 @@
     color: rgba(0, 0, 0, 0.4);
   }
 
-  .tracklist {
+  .current_track {
+    margin: 0 auto;
+    /* margin-bottom: 20px; */
+  }
+
+  .social {
     display: block;
+  }
+
+  .tracklist {
+    display: flex;
     justify-content: left;
     align-items: left;
-    margin: 0;
-    margin-left: 0.2rem;
-    overflow-y: scroll;
-    height: 200px;
-    scroll-behavior: smooth;
-    /* -webkit-mask-image: -webkit-gradient(linear,left 80%,left bottom,from(black),to(rgba(0,0,0,0))) */
+    margin: 0 auto;
+    /* height: 100%; */
+    /* overflow: auto; */
+    /* overflow-y: scroll; */
+    /* height: 200px; */
+    /* scroll-behavior:smooth; */
   }
 
   ol {
     font-family: HelveticaNeue-Thin, Helvetica, sans-serif;
     color: rgba(0, 0, 0, 0.8);
+    padding: 0;
+    margin:0 0 0 1rem;
+    /* margin: 0 auto; */
   }
 </style>
