@@ -8,15 +8,21 @@
   $: playing = current && !paused
 </script>
 
-<li class:playing class:current on:click>
-  <p><TrackString {...track} /></p>
-</li>
+  <li class:playing class:current on:click>
+    <p><TrackString {...track} /></p>
+  </li>
+
+
 
 <style>
+
+
   li {
     height: 1.6rem;
-    font-family: HelveticaNeue-Thin, Helvetica, sans-serif;
+    font-weight: 200;
     color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    /* display: table-row; */
   }
 
   /* li.playing::marker {
@@ -25,8 +31,12 @@
   } */
 
   li.current {
-    /* font-family: Helvetica, Helvetica, sans-serif; */
-    color: rgba(0, 0, 0, 0.8);
-    font-weight: 600;
+    font-family: HelveticaNeue, Helvetica, sans-serif;
+    /* color: rgba(0, 0, 0, 0.8); */
+    font-weight: 400;
+    font-style: italic;
+    /* margin: calc(1em + 10px) 0 calc(1em + 10px) 0; */
+    /* transition: margin .1s ease-in-out; */
   }
+
 </style>

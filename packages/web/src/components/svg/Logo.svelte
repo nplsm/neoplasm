@@ -27,7 +27,7 @@
 
 <style>
   div {
-    height: 2rem;
+    height: 24px;
     padding: 2rem;
     display: flex;
     justify-content: center;

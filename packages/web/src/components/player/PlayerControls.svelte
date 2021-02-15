@@ -62,14 +62,17 @@
   }
 
   svg {
-    height: 2.5rem;
-    width: 2.5rem;
-    padding: 0.1rem 0.8rem 0.2rem 1rem;
+    height: 2rem;
+    width: 2rem;
+    padding: 0.1rem 0.4rem 0.2rem 1rem;
     margin: 0rem;
+    cursor: pointer;
   }
 
-  /* svg.play-pause {
-    height: 3rem;
-    width: 3rem;
-  } */
+  svg.play-pause {
+    height: 2.7rem;
+    width: 2.7rem;
+  }
+
+
 </style>
