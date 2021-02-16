@@ -40,6 +40,44 @@ export async function seedDatabase() {
         alias: "Marble Bust",
       },
     ],
+    links: [
+      {
+        target: "apple-music",
+        href: "https://music.apple.com/ru/album/lifeoxetine/1530222229",
+      },
+      {
+        target: "boom",
+        href: "",
+      },
+      {
+        target: "spotify",
+        href: "https://open.spotify.com/album/6ZPkKdiyAQhwUCTMJ9i8lT",
+      },
+      {
+        target: "bandcamp",
+        href: "https://lovvlifer.bandcamp.com/album/lifeoxetine",
+      },
+      {
+        target: "soundcloud",
+        href: "https://soundcloud.com/ne-sm/sets/marble-bust-lifeoxetine",
+      },
+      {
+        target: "deezer",
+        href: "",
+      },
+      {
+        target: "youtube-music",
+        href: "",
+      },
+      {
+        target: "yandex-music",
+        href: "",
+      },
+      {
+        target: "pandora",
+        href: "",
+      },
+    ],
   } as Release)
 
   const auk = await ReleaseModel.create({
@@ -51,6 +89,45 @@ export async function seedDatabase() {
       {
         artist: ourv._id,
         alias: "Our.V",
+      },
+    ],
+    links: [
+      {
+        target: "apple-music",
+        href: "https://music.apple.com/ru/album/a-u-k/1498059256",
+      },
+      {
+        target: "boom",
+        href: "https://vk.cc/akEskF",
+      },
+      {
+        target: "spotify",
+        href: "https://open.spotify.com/album/2SW7gwDQecDx5ZTpP0fzFa",
+      },
+      {
+        target: "bandcamp",
+        href: "https://ourdotv.bandcamp.com/album/a-u-k",
+      },
+      {
+        target: "soundcloud",
+        href: "https://soundcloud.com/ne-sm/sets/a-u-k",
+      },
+      {
+        target: "deezer",
+        href: "https://www.deezer.com/us/album/130533372",
+      },
+      {
+        target: "youtube-music",
+        href:
+          "https://music.youtube.com/playlist?list=OLAK5uy_mgIGKIVrDsWftvskU91wFmsaGRfzQP29Y",
+      },
+      {
+        target: "yandex-music",
+        href: "https://music.yandex.ru/album/9847749",
+      },
+      {
+        target: "pandora",
+        href: "",
       },
     ],
   } as Release)

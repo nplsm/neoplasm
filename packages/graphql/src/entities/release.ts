@@ -1,8 +1,9 @@
-import { prop, Ref, getModelForClass } from "@typegoose/typegoose"
+import { prop, getModelForClass } from "@typegoose/typegoose"
 import { ObjectType, Field } from "type-graphql"
 import { ObjectID } from "mongodb"
 
 import { ArtistAlias } from "./artist-alias"
+import { Link } from "./link"
 
 @ObjectType()
 export class Release {
@@ -27,6 +28,10 @@ export class Release {
   @Field(() => [ArtistAlias])
   @prop({ required: true, type: () => ArtistAlias })
   artists: ArtistAlias[]
+
+  @Field(() => [Link])
+  @prop({ required: true, type: () => Link })
+  links: Link[]
 }
 
 export const ReleaseModel = getModelForClass(Release)

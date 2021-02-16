@@ -3,16 +3,16 @@ import { ObjectType, Field } from "type-graphql"
 import { ObjectID } from "mongodb"
 
 @ObjectType()
-export class TrackSource {
+export class Link {
   readonly _id: ObjectID
 
   @Field()
   @prop({ required: true })
-  src: string
+  target: string
 
   @Field()
   @prop({ required: true })
-  type: string
+  href: string
 }
 
-export const TrackSourceModel = getModelForClass(TrackSource)
+export const LinkModel = getModelForClass(Link)
