@@ -28,6 +28,10 @@
                     type
                   }
                 }
+                links {
+                  target
+                  href
+                }
               }
               copies {
                 _id

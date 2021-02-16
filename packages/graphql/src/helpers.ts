@@ -47,7 +47,7 @@ export async function seedDatabase() {
       },
       {
         target: "boom",
-        href: "",
+        href: "*",
       },
       {
         target: "spotify",
@@ -63,19 +63,19 @@ export async function seedDatabase() {
       },
       {
         target: "deezer",
-        href: "",
+        href: "*",
       },
       {
         target: "youtube-music",
-        href: "",
+        href: "*",
       },
       {
         target: "yandex-music",
-        href: "",
+        href: "*",
       },
       {
         target: "pandora",
-        href: "",
+        href: "*",
       },
     ],
   } as Release)
@@ -127,7 +127,7 @@ export async function seedDatabase() {
       },
       {
         target: "pandora",
-        href: "",
+        href: "*",
       },
     ],
   } as Release)

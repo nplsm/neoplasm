@@ -1,7 +1,6 @@
 import { Resolver, Query, Arg, FieldResolver, Root } from "type-graphql"
 
 import { Release, ReleaseModel } from "../entities/release"
-import { ArtistAlias, ArtistAliasModel } from "../entities/artist-alias"
 import { Track, TrackModel } from "../entities/track"
 
 @Resolver(() => Release)

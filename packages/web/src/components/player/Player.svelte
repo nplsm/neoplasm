@@ -5,10 +5,11 @@
   import PlayerProgressBar from "./PlayerProgressBar.svelte"
   import PlayerTrack from "./PlayerTrack.svelte"
   import TrackString from "./TrackString.svelte"
-  // import SocialLogos from "../../../components/svg/SocialLogos.svelte"
+  import SocialLogos from "../svg/SocialLogos.svelte"
 
   export let tracks = []
   export let cover
+  export let links
   export let title = ""
 
   let currentTrackIndex = 0
@@ -113,49 +114,49 @@
     }
   }
 </script>
-<div class='main_block'>
-<img src={cover} alt={title} />
 
-<div class="current_track">
-  <h1 class="track">
-    <TrackString {...currentTrack} />
-  </h1>
+<div class="main_block">
+  <img src={cover} alt={title} />
 
-  <h3 class="track_artist">
-    by <ArtistString {...currentTrack} />
-  </h3>
+  <div class="current_track">
+    <h1 class="track">
+      <TrackString {...currentTrack} />
+    </h1>
 
-  <PlayerProgressBar
-    {currentTime}
-    {duration}
-    on:input={handleSeeking}
-    on:change={handleSeek}
-  />
+    <h3 class="track_artist">
+      by <ArtistString {...currentTrack} />
+    </h3>
 
-  <PlayerControls
-    {paused}
-    on:playPause={handlePlayPause}
-    on:prev={handlePrev}
-    on:next={handleNext}
-  />
-</div>
+    <PlayerProgressBar
+      {currentTime}
+      {duration}
+      on:input={handleSeeking}
+      on:change={handleSeek}
+    />
 
-<div class="social">
-  <!-- <SocialLogos /> -->
-</div>
+    <PlayerControls
+      {paused}
+      on:playPause={handlePlayPause}
+      on:prev={handlePrev}
+      on:next={handleNext}
+    />
+  </div>
 
-<div class="tracklist">
-  <ol>
-    {#each tracks as track (track._id)}
-      <PlayerTrack
-        {track}
-        current={track._id === currentTrack._id}
-        {paused}
-        on:click={() => handleChangeTrack(track._id)}
-      />
-    {/each}
-  </ol>
-</div>
+  <div class="social" />
+
+  <div class="tracklist">
+    <ol>
+      {#each tracks as track (track._id)}
+        <PlayerTrack
+          {track}
+          current={track._id === currentTrack._id}
+          {paused}
+          on:click={() => handleChangeTrack(track._id)}
+        />
+      {/each}
+    </ol>
+  </div>
+  <SocialLogos {links} />
 </div>
 
 <style>
@@ -225,7 +226,7 @@
     font-family: HelveticaNeue-Thin, Helvetica, sans-serif;
     color: rgba(0, 0, 0, 0.8);
     padding: 0;
-    margin:0 0 0 1rem;
+    margin: 0 0 0 1rem;
     /* margin: 0 auto; */
   }
 </style>
