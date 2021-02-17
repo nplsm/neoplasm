@@ -17,7 +17,7 @@
 
   const dispatch = createEventDispatcher()
 
-  function hadlePointerMove(event) {
+  function handlePointerMove(event) {
     const pointerPositionX = event.pageX - left
     newTime = (pointerPositionX / width) * duration
     if (newTime > duration) {
@@ -44,7 +44,7 @@
 </script>
 
 <svelte:window
-  on:pointermove={hadlePointerMove}
+  on:pointermove={handlePointerMove}
   on:pointerup={handlePointerUp}
 />
 
@@ -80,7 +80,7 @@
     /* margin-top: -1px; */
     padding: 0;
     border-radius: 1px;
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
   }
 
   div.thumb {
@@ -91,7 +91,7 @@
     margin-top: -3px;
     margin-left: -4px;
     padding: 0;
-    background-color: #001AFF;
+    background-color: #001aff;
     cursor: pointer;
   }
 
@@ -101,6 +101,6 @@
     /* margin-top: -1px; */
     padding: 0;
     border-radius: 1px;
-    background-color: #001AFF;
+    background-color: #001aff;
   }
 </style>
