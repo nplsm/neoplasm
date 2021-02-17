@@ -22,7 +22,6 @@
   let newTime = 0
 
   $: time = seeking ? newTime : tracks[currentTrackIndex].currentTime
-  $: console.log(tracks[5].duration)
 
   async function play() {
     await tick()
