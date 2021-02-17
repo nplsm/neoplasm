@@ -24,7 +24,8 @@
     margin-top: 1rem;
   }
 
-  .time_left, .time_right {
+  .time_left,
+  .time_right {
     font-family: HelveticaNeue, Helvetica, sans-serif;
     margin: 0rem 0.8rem;
     color: rgba(0, 0, 0, 0.54);

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { afterUpdate, tick } from "svelte"
+  import { tick } from "svelte"
   import ArtistString from "./ArtistString.svelte"
   import PlayerControls from "./PlayerControls.svelte"
   import PlayerProgressBar from "./PlayerProgressBar.svelte"
@@ -12,130 +12,141 @@
   export let links
   export let title = ""
 
-  let currentTrackIndex = 0
-  let currentTime = 0
-  let duration = 0
-  let paused = true
-
-  $: currentTrack = tracks[currentTrackIndex]
-  $: currentAudio = currentTrack.audio
-  $: prevAvaliable = currentTrackIndex > 0
-  $: nextAvaliable = currentTrackIndex < tracks.length - 1
-
-  afterUpdate(() => {
-    const track = tracks[currentTrackIndex]
-    if (!track.audio) {
-      const src = track.sources[0].src
-      const audio = new Audio(src)
-      audio.onpause = () => {
-        paused = true
-      }
-      audio.onplay = () => {
-        paused = false
-      }
-      audio.onended = async () => {
-        currentAudio.currentTime = 0
-        currentTrackIndex++
-        currentTime = 0
-        await tick()
-        currentAudio.play()
-      }
-      audio.ontimeupdate = (e) => {
-        const audio = e.target
-        currentTime = audio.currentTime
-      }
-      audio.onloadedmetadata = (e) => {
-        duration = e.target.duration
-      }
-      track.audio = audio
-    } else {
-      duration = track.audio.duration
-    }
-    tracks[currentTrackIndex] = track
+  tracks = tracks.map((track) => {
+    return { ...track, paused: true }
   })
 
+  let currentTrackIndex = 0
+
+  let seeking = false
+  let newTime = 0
+
+  $: time = seeking ? newTime : tracks[currentTrackIndex].currentTime
+  $: console.log(tracks[5].duration)
+
+  async function play() {
+    await tick()
+    tracks[currentTrackIndex].paused = false
+  }
+
+  function pause() {
+    tracks[currentTrackIndex].paused = true
+  }
+
+  function reset() {
+    tracks[currentTrackIndex].audio.currentTime = 0
+  }
+
+  function stop() {
+    pause()
+    reset()
+  }
+
   function handlePlayPause() {
-    if (currentAudio.paused) {
-      currentAudio.play()
-    } else {
-      currentAudio.pause()
-    }
-  }
-
-  async function handlePrev() {
-    if (prevAvaliable) {
-      const wasPaused = paused
-      currentAudio.pause()
-      currentAudio.currentTime = 0
-      currentTrackIndex--
-      currentTime = 0
-      if (!wasPaused) {
-        await tick()
-        currentAudio.play()
+    if (tracks[currentTrackIndex].paused) {
+      play()
+      if (tracks[currentTrackIndex].played.length === 0) {
+        tracks[currentTrackIndex].audio.currentTime = newTime
+        newTime = 0
+        seeking = false
       }
     } else {
-      currentAudio.currentTime = 0
+      pause()
     }
   }
 
-  async function handleNext() {
-    if (nextAvaliable) {
-      const wasPaused = paused
-      currentAudio.pause()
-      currentAudio.currentTime = 0
-      currentTrackIndex++
-      currentTime = 0
-      if (!wasPaused) {
-        await tick()
-        currentAudio.play()
-      }
+  function handleTrackChangeWith(trackChangingFunction: { (): void }) {
+    const wasPaused = tracks[currentTrackIndex].paused
+    stop()
+    trackChangingFunction()
+    if (!wasPaused) {
+      play()
     }
   }
 
-  function handleSeeking(e) {
-    currentTime = e.detail.newTime
+  function handlePrev() {
+    if (currentTrackIndex > 0) {
+      handleTrackChangeWith(() => {
+        currentTrackIndex--
+      })
+    }
   }
 
-  function handleSeek(e) {
-    currentAudio.currentTime = e.detail.newTime
+  function handleNext() {
+    if (currentTrackIndex < tracks.length - 1) {
+      handleTrackChangeWith(() => {
+        currentTrackIndex++
+      })
+    }
   }
 
-  async function handleChangeTrack(id) {
-    if (currentTrack._id !== id) {
-      const wasPaused = paused
-      currentAudio.pause()
-      currentAudio.currentTime = 0
-      currentTrackIndex = tracks.findIndex((track) => track._id === id)
-      currentTime = 0
-      if (!wasPaused) {
-        await tick()
-        currentAudio.play()
-      }
+  function handleChangeTrack(id) {
+    if (tracks[currentTrackIndex]._id !== id) {
+      handleTrackChangeWith(() => {
+        currentTrackIndex = tracks.findIndex((track) => track._id === id)
+      })
+    }
+  }
+
+  function handleEnded() {
+    handleNext()
+    play()
+  }
+
+  function handleSeeking(event) {
+    seeking = true
+    newTime = event.detail.newTime
+  }
+
+  async function handleSeek(event) {
+    if (tracks[currentTrackIndex].played.length > 0) {
+      tracks[currentTrackIndex].audio.currentTime = event.detail.newTime
+      newTime = 0
+      await tick()
+      seeking = false
     }
   }
 </script>
+
+{#each tracks as track (track._id)}
+  <audio
+    bind:played={track.played}
+    bind:duration={track.duration}
+    bind:paused={track.paused}
+    bind:this={track.audio}
+    on:ended={handleEnded}
+    on:timeupdate={(event) => {
+      track.currentTime = event.currentTarget.currentTime
+    }}
+  >
+    <track kind="captions" />
+    {#each track.sources as source}
+      <source src={source.src} type={source.type} />
+    {/each}
+  </audio>
+{/each}
 
 <div class="main_block">
   <img src={cover} alt={title} />
 
   <div class="current_track">
     <h1 class="track">
-      <TrackString {...currentTrack} />
+      <TrackString {...tracks[currentTrackIndex]} />
     </h1>
 
     <h3 class="track_artist">
-      by <ArtistString {...currentTrack} />
+      by <ArtistString {...tracks[currentTrackIndex]} />
     </h3>
 
     <PlayerProgressBar
-      {currentTime}
-      {duration}
+      currentTime={time}
+      duration={tracks[currentTrackIndex].duration}
       on:input={handleSeeking}
       on:change={handleSeek}
     />
 
     <PlayerControls
-      {paused}
+      paused={tracks[currentTrackIndex].paused}
       on:playPause={handlePlayPause}
       on:prev={handlePrev}
       on:next={handleNext}
@@ -149,8 +160,8 @@
       {#each tracks as track (track._id)}
         <PlayerTrack
           {track}
-          current={track._id === currentTrack._id}
-          {paused}
+          current={track._id === tracks[currentTrackIndex]._id}
+          paused={tracks[currentTrackIndex].paused}
           on:click={() => handleChangeTrack(track._id)}
         />
       {/each}
