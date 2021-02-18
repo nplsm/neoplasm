@@ -84,6 +84,7 @@
       handleTrackChangeWith(() => {
         currentTrackIndex = tracks.findIndex((track) => track._id === id)
       })
+      newTime = 0
     }
   }
 
