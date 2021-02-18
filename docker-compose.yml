@@ -29,6 +29,7 @@ services:
       - 3001:3001
     env_file: .env
     environment:
+      DEV: "true"
       PORT: 3001
     depends_on:
       - mongo

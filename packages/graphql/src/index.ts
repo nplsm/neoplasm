@@ -13,14 +13,17 @@ import { seedDatabase } from "./helpers"
 import { TypegooseMiddleware } from "./typegoose-middleware"
 
 const PORT = process.env.PORT
+const DEV = process.env.DEV
 const MONGO_DB_URL = process.env.MONGO_DB_URL
 
 async function bootstrap() {
   try {
     const mongoose = await connect(MONGO_DB_URL)
 
-    await mongoose.connection.db.dropDatabase()
-    await seedDatabase()
+    if (DEV) {
+      await mongoose.connection.db.dropDatabase()
+      await seedDatabase()
+    }
 
     const schema = await buildSchema({
       resolvers: [
