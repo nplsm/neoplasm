@@ -4,6 +4,7 @@ services:
     restart: always
     volumes:
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - mongodb_data:/data/db
     env_file: .env
 
   mongo-express:
@@ -20,8 +21,8 @@ services:
     build:
       context: packages/graphql
       dockerfile: Dockerfile
-      target: dev
-    command: pnpm run dev
+      target: prod
+    command: node ./__build__/index.js
     restart: always
     volumes:
       - ./packages/graphql/src:/usr/src/app/src
@@ -38,8 +39,8 @@ services:
     build:
       context: packages/web
       dockerfile: Dockerfile
-      target: dev
-    command: pnpm run dev
+      target: prod
+    command: node __sapper__/build
     restart: always
     volumes:
       - ./packages/web/src:/usr/src/app/src
@@ -48,3 +49,6 @@ services:
       - 10000:10000
     depends_on:
       - graphql
+
+volumes:
+  mongodb_data:

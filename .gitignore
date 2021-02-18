@@ -118,4 +118,4 @@ yarn-error.log
 # build
 *__build__
 
-docker-compose.prod.yml
+docker-compose.real.yml
