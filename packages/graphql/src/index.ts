@@ -13,7 +13,7 @@ import { seedDatabase } from "./helpers"
 import { TypegooseMiddleware } from "./typegoose-middleware"
 
 const PORT = process.env.PORT
-const DEV = process.env.DEV
+const DEV = process.env.DEV ?? false
 const MONGO_DB_URL = process.env.MONGO_DB_URL
 
 async function bootstrap() {
