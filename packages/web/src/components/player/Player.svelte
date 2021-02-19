@@ -56,6 +56,7 @@
 
   function handleTrackChangeWith(trackChangingFunction: { (): void }) {
     const wasPaused = tracks[currentTrackIndex].paused
+    newTime = 0
     stop()
     trackChangingFunction()
     if (!wasPaused) {
@@ -84,7 +85,6 @@
       handleTrackChangeWith(() => {
         currentTrackIndex = tracks.findIndex((track) => track._id === id)
       })
-      newTime = 0
     }
   }
 
@@ -93,16 +93,21 @@
     play()
   }
 
+  function handleTimeUpdate(event, track) {
+    if (!seeking) {
+      track.currentTime = event.currentTarget.currentTime
+    }
+  }
+
   function handleSeeking(event) {
     seeking = true
     newTime = event.detail.newTime
   }
 
-  async function handleSeek(event) {
+  function handleSeek(event) {
     if (tracks[currentTrackIndex].played.length > 0) {
       tracks[currentTrackIndex].audio.currentTime = event.detail.newTime
       newTime = 0
-      await tick()
       seeking = false
     }
   }
@@ -115,9 +120,7 @@
     bind:paused={track.paused}
     bind:this={track.audio}
     on:ended={handleEnded}
-    on:timeupdate={(event) => {
-      track.currentTime = event.currentTarget.currentTime
-    }}
+    on:timeupdate={(event) => handleTimeUpdate(event, track)}
   >
     <track kind="captions" />
     {#each track.sources as source}
