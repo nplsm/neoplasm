@@ -35,7 +35,6 @@
               }
               copies {
                 _id
-                shiped
               }
             }
           }
@@ -47,13 +46,13 @@
       const { data } = await res.json()
       const { item } = data
       const { release, copies } = item
-      const correctId = copies.some((copy) => copy._id === id)
-      if (correctId) {
+      const idIsCorrect = copies.some((copy) => copy._id === id)
+      if (idIsCorrect) {
         release.tracks.sort((a, b) => a.position - b.position)
         return { release }
       }
     } else {
-      this.error(404, "Page not found")
+      this.error(404, "Not found")
     }
   }
 </script>
@@ -66,6 +65,6 @@
 
 <svelte:head>
   <title>NEOPLASM — {release.title}</title>
-  <meta name="robots" content="noindex" />
 </svelte:head>
+
 <Player {...release} />

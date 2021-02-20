@@ -24,7 +24,7 @@
       const { slug } = release
       return this.redirect(302, `/items/${slug}/${id}`)
     } else {
-      this.error(404, "Page not found")
+      this.error(404, "Not found")
     }
   }
 </script>
