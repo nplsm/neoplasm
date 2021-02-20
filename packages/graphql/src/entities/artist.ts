@@ -13,6 +13,10 @@ export class Artist {
   @Field()
   @prop({ required: true })
   title: string
+
+  @Field()
+  @prop({ required: true, default: false })
+  neoplasm: boolean
 }
 
 export const ArtistModel = getModelForClass(Artist)
