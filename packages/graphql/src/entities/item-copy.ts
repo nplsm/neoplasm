@@ -11,10 +11,6 @@ export class ItemCopy {
 
   @Field(() => [Item])
   item: Item
-
-  @Field()
-  @prop({ required: true, default: false })
-  shiped: boolean
 }
 
 export const ItemCopyModel = getModelForClass(ItemCopy)
