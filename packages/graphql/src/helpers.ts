@@ -4,14 +4,28 @@ import { Release, ReleaseModel } from "./entities/release"
 import { Track, TrackModel } from "./entities/track"
 
 export async function seedDatabase() {
+  const perfecthuman = await ArtistModel.create({
+    slug: "perfect-human",
+    title: "Perfect Human",
+    neoplasm: true,
+  } as Artist)
+
   const marblebust = await ArtistModel.create({
     slug: "marble-bust",
     title: "Marble Bust",
+    neoplasm: true,
   } as Artist)
 
   const ourv = await ArtistModel.create({
     slug: "our-v",
     title: "Our.V",
+    neoplasm: true,
+  } as Artist)
+
+  const aaaaa = await ArtistModel.create({
+    slug: "aaaaa",
+    title: "ААААА",
+    neoplasm: true,
   } as Artist)
 
   const uvula = await ArtistModel.create({
@@ -650,11 +664,9 @@ export async function seedDatabase() {
       copies: [
         {
           _id: "4209348102a09234f80293b42b908903",
-          shiped: true,
         },
         {
           _id: "4209234532047234f80293b42b908903",
-          shiped: false,
         },
       ],
     },
@@ -664,11 +676,9 @@ export async function seedDatabase() {
       copies: [
         {
           _id: "4209348102a09234f80293b42b908903",
-          shiped: true,
         },
         {
           _id: "4209234532047234f80293b42b908903",
-          shiped: false,
         },
       ],
     },
