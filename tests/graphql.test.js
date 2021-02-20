@@ -32,7 +32,6 @@ test("Correct fetch of items", async () => {
             }
             copies {
               _id
-              shiped
             }
           }
         }
