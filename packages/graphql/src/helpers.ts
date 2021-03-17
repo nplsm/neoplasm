@@ -4,6 +4,11 @@ import { Release, ReleaseModel } from "./entities/release"
 import { Track, TrackModel } from "./entities/track"
 
 export async function seedDatabase() {
+  const perfecthuman = await ArtistModel.create({
+    slug: "perfect-human",
+    title: "Perfect Human",
+  } as Artist)
+
   const marblebust = await ArtistModel.create({
     slug: "marble-bust",
     title: "Marble Bust",
@@ -27,6 +32,56 @@ export async function seedDatabase() {
   const jessie = await ArtistModel.create({
     slug: "jessie",
     title: "Jessie",
+  } as Artist)
+
+  const aaaaa = await ArtistModel.create({
+    slug: "aaaaa",
+    title: "ААААА",
+  } as Artist)
+
+  const qwqwqwqwa = await ArtistModel.create({
+    slug: "qwqwqwqwa",
+    title: "qwqwqwqwa",
+  } as Artist)
+
+  const morimori = await ArtistModel.create({
+    slug: "mori-mori",
+    title: "Mori Mori",
+  } as Artist)
+
+  const cellvl = await ArtistModel.create({
+    slug: "cellvl",
+    title: "cellvl",
+  } as Artist)
+
+  const shyqa = await ArtistModel.create({
+    slug: "shyqa",
+    title: "Shyqa",
+  } as Artist)
+
+  const lyukshi = await ArtistModel.create({
+    slug: "lyukshi",
+    title: "Lyukshi",
+  } as Artist)
+
+  const himera = await ArtistModel.create({
+    slug: "himera",
+    title: "Himera",
+  } as Artist)
+
+  const rehu = await ArtistModel.create({
+    slug: "re-hu",
+    title: "Re-Hu",
+  } as Artist)
+
+  const pozhar = await ArtistModel.create({
+    slug: "pozhar",
+    title: "Пожар",
+  } as Artist)
+
+  const ivanskoryna = await ArtistModel.create({
+    slug: "ivan-skoryna",
+    title: "Ivan Skoryna",
   } as Artist)
 
   const lifeoxetine = await ReleaseModel.create({
@@ -128,6 +183,54 @@ export async function seedDatabase() {
       {
         target: "pandora",
         href: "*",
+      },
+    ],
+  } as Release)
+
+  const justnowago = await ReleaseModel.create({
+    slug: "just-now-ago",
+    title: "Just Now Ago",
+    cover: "https://cdn.neoplasm.xyz/releases/just-now-ago/cover.jpg",
+    code: "npl0006",
+    artists: [],
+    links: [
+      {
+        target: "apple-music",
+        href: "https://music.apple.com/ru/album/just-now-ago/1532519933",
+      },
+      {
+        target: "boom",
+        href:
+          "https://vk.com/music/album/-2000799746_8799746_d4cbd9ad05ab1b6ba0",
+      },
+      {
+        target: "spotify",
+        href: "https://open.spotify.com/album/4d7r4LZ7Vw7pnrIsGe6flU",
+      },
+      {
+        target: "bandcamp",
+        href: "https://neoplasm.bandcamp.com/album/just-now-ago",
+      },
+      {
+        target: "soundcloud",
+        href: "https://soundcloud.com/ne-sm/sets/just-now-ago-1",
+      },
+      {
+        target: "deezer",
+        href: "https://www.deezer.com/us/album/174440052",
+      },
+      {
+        target: "youtube-music",
+        href:
+          "https://music.youtube.com/playlist?list=OLAK5uy_mpVffxgJrRyn6t1bk14IHE8emmKAiKuBw",
+      },
+      {
+        target: "yandex-music",
+        href: "https://music.yandex.ru/album/12174222",
+      },
+      {
+        target: "pandora",
+        href: "#",
       },
     ],
   } as Release)
@@ -641,6 +744,333 @@ export async function seedDatabase() {
         },
       ],
     },
+    {
+      title: "Angel Energy",
+      position: 1,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: qwqwqwqwa._id,
+          alias: "qwqwqwqwa",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/1.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/1.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/1.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "Love Cut",
+      position: 2,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: morimori._id,
+          alias: "Mori Mori",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/2.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/2.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/2.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "Nostalgia",
+      position: 3,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: cellvl._id,
+          alias: "cellvl",
+        },
+      ],
+      featuring: [
+        {
+          artist: shyqa._id,
+          alias: "Shyqa",
+        },
+      ],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/3.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/3.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/3.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "5EURO",
+      position: 4,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: lyukshi._id,
+          alias: "Lyukshi",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/4.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/4.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/4.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "Goodbye",
+      position: 5,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: marblebust._id,
+          alias: "kolya",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/5.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/5.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/5.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "You're Going To Be Okay",
+      position: 6,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: himera._id,
+          alias: "Himera",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/6.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/6.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/6.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "Alder King",
+      position: 7,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: qwqwqwqwa._id,
+          alias: "qwqwqwqwa",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/7.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/7.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/7.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "De Profundis ",
+      position: 8,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: rehu._id,
+          alias: "Re-Hu",
+        },
+      ],
+      featuring: [
+        {
+          artist: pozhar._id,
+          alias: "Пожар",
+        },
+      ],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/8.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/8.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/8.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "user-friendly",
+      position: 9,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: aaaaa._id,
+          alias: "Aleksei Podat",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/9.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/9.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/9.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "dumb fuck 2",
+      position: 10,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: ivanskoryna._id,
+          alias: "Ivan Skoryna",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/10.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/10.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/10.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "TG2",
+      position: 11,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: perfecthuman._id,
+          alias: "Perfect Human",
+        },
+      ],
+      featuring: [
+        {
+          artist: marblebust._id,
+          alias: "Marble Bust",
+        },
+      ],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/11.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/11.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/11.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "Primus Tandem",
+      position: 12,
+      release: justnowago._id,
+      artists: [
+        {
+          artist: ourv._id,
+          alias: "qwqwqwqwa",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/mp3/12.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/ogg/12.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src: "https://cdn.neoplasm.xyz/releases/just-now-ago/wav/12.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
   ] as Track[])
 
   await ItemModel.create([
@@ -661,6 +1091,20 @@ export async function seedDatabase() {
     {
       slug: "a-u-k",
       release: auk._id,
+      copies: [
+        {
+          _id: "4209348102a09234f80293b42b908903",
+          shiped: true,
+        },
+        {
+          _id: "4209234532047234f80293b42b908903",
+          shiped: false,
+        },
+      ],
+    },
+    {
+      slug: "just-now-ago",
+      release: justnowago._id,
       copies: [
         {
           _id: "4209348102a09234f80293b42b908903",

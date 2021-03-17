@@ -8,9 +8,12 @@
   import SocialLogos from "../svg/SocialLogos.svelte"
 
   export let tracks = []
+  export let artists = []
   export let cover
   export let links
   export let title = ""
+
+  const showArtists = artists.length == 0 ? true : false
 
   tracks = tracks.map((track) => {
     return { ...track, paused: true }
@@ -165,6 +168,7 @@
           {track}
           current={track._id === tracks[currentTrackIndex]._id}
           paused={tracks[currentTrackIndex].paused}
+          {showArtists}
           on:click={() => handleChangeTrack(track._id)}
         />
       {/each}

@@ -4,19 +4,16 @@
   export let track
   export let current = false
   export let paused = true
+  export let showArtists = false
 
   $: playing = current && !paused
 </script>
 
-  <li class:playing class:current on:click>
-    <p><TrackString {...track} /></p>
-  </li>
-
-
+<li class:playing class:current on:click>
+  <p><TrackString {...track} {showArtists} /></p>
+</li>
 
 <style>
-
-
   li {
     height: 1.6rem;
     font-weight: 200;
@@ -38,5 +35,4 @@
     /* margin: calc(1em + 10px) 0 calc(1em + 10px) 0; */
     /* transition: margin .1s ease-in-out; */
   }
-
 </style>
