@@ -13,6 +13,9 @@
               release {
                 title
                 cover
+                artists {
+                  alias
+                }
                 tracks {
                   _id
                   position
@@ -68,4 +71,5 @@
   <title>NEOPLASM — {release.title}</title>
   <meta name="robots" content="noindex" />
 </svelte:head>
+
 <Player {...release} />

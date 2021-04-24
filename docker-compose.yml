@@ -44,6 +44,7 @@ services:
     restart: always
     volumes:
       - ./packages/web/src:/usr/src/app/src
+      - ./packages/web/static:/usr/src/app/static
     ports:
       - 3000:3000
       - 10000:10000
