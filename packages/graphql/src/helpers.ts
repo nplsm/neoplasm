@@ -1258,6 +1258,20 @@ export async function seedDatabase() {
           shiped: false,
         },
       ],
+      html: `
+      <div style="margin: 2rem 1rem 0;text-align: center; ">
+        <p>
+          Get 15% off on any item in <a href="https://etherparfum.com/shop">éther</a
+          >
+          and 20% off on
+          <a href="https://neoplasm.bandcamp.com/merch/just-now-ago-silk-scarf"
+            >"Just Now Ago" Silk Scarf</a
+          > using promocode:
+        </p>
+        <p on:click={}  style="font-size:larger;margin: 1rem
+        ">GAZE</p>
+      </div>
+      `,
     },
   ] as Item[])
 }

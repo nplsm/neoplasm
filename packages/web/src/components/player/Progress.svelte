@@ -30,7 +30,7 @@
     }
   }
 
-  function handlePointerUp(event) {
+  function handlePointerUp() {
     if (seeking) {
       dispatch("change", { newTime })
       seeking = false

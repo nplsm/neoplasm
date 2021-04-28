@@ -40,6 +40,7 @@
                 _id
                 shiped
               }
+              html
             }
           }
         `,
@@ -49,11 +50,11 @@
     if (res.status === 200) {
       const { data } = await res.json()
       const { item } = data
-      const { release, copies } = item
+      const { release, copies, html } = item
       const correctId = copies.some((copy) => copy._id === id)
       if (correctId) {
         release.tracks.sort((a, b) => a.position - b.position)
-        return { release }
+        return { release, html }
       }
     } else {
       this.error(404, "Page not found")
@@ -65,6 +66,7 @@
   import Player from "../../../components/player/Player.svelte"
 
   export let release
+  export let html
 </script>
 
 <svelte:head>
@@ -72,4 +74,4 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<Player {...release} />
+<Player {...release} {html} />

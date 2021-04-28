@@ -21,9 +21,13 @@ export class Item {
   @prop({ required: true, type: () => [ItemCopy] })
   copies: ItemCopy[]
 
-  @Field()
+  @Field({ nullable: true })
   @prop({ required: false })
   text?: string
+
+  @Field({ nullable: true })
+  @prop({ required: false })
+  html?: string
 
   @Field(() => [String])
   @prop({ required: false })
