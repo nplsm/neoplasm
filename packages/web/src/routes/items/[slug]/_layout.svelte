@@ -10,8 +10,8 @@
 <style>
   main {
     margin: 0 auto;
-    padding: 0rem;
-    max-width: 22rem;
+    padding: 0 15px;
+    max-width: 30rem;
     max-height: 100%;
   }
 </style>

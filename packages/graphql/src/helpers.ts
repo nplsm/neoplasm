@@ -4,6 +4,11 @@ import { Release, ReleaseModel } from "./entities/release"
 import { Track, TrackModel } from "./entities/track"
 
 export async function seedDatabase() {
+  const neoplasm = await ArtistModel.create({
+    slug: "neoplasm",
+    title: "Neoplasm",
+  } as Artist)
+
   const perfecthuman = await ArtistModel.create({
     slug: "perfect-human",
     title: "Perfect Human",
@@ -83,6 +88,11 @@ export async function seedDatabase() {
     slug: "ivan-skoryna",
     title: "Ivan Skoryna",
   } as Artist)
+
+  const ether = await ArtistModel.create({
+    slug: "ether",
+    title: "éther",
+  })
 
   const lifeoxetine = await ReleaseModel.create({
     slug: "lifeoxetine",
@@ -191,8 +201,13 @@ export async function seedDatabase() {
     slug: "just-now-ago",
     title: "Just Now Ago",
     cover: "https://cdn.neoplasm.xyz/releases/just-now-ago/cover.jpg",
-    code: "npl0006",
-    artists: [],
+    code: "npl0005",
+    artists: [
+      {
+        artist: neoplasm._id,
+        alias: "Neoplasm",
+      },
+    ],
     links: [
       {
         target: "apple-music",
@@ -227,6 +242,62 @@ export async function seedDatabase() {
       {
         target: "yandex-music",
         href: "https://music.yandex.ru/album/12174222",
+      },
+      {
+        target: "pandora",
+        href: "#",
+      },
+    ],
+  } as Release)
+
+  const gazingAtUThroughASmartphoneScreen = await ReleaseModel.create({
+    slug: "gazing-at-u-through-a-smartphone-screen",
+    title: "Gazing At U Through A Smartphone Screen",
+    cover:
+      "https://neoplasm.fra1.cdn.digitaloceanspaces.com/releases/gazing-at-u-through-a-smartphone-screen/cover.jpg",
+    code: "npl0006",
+    artists: [
+      {
+        artist: marblebust._id,
+        alias: "kolya",
+      },
+      {
+        artist: ether._id,
+        alias: "éther",
+      },
+    ],
+    links: [
+      {
+        target: "apple-music",
+        href: "#",
+      },
+      {
+        target: "boom",
+        href: "#",
+      },
+      {
+        target: "spotify",
+        href: "#",
+      },
+      {
+        target: "bandcamp",
+        href: "#",
+      },
+      {
+        target: "soundcloud",
+        href: "#",
+      },
+      {
+        target: "deezer",
+        href: "#",
+      },
+      {
+        target: "youtube-music",
+        href: "#",
+      },
+      {
+        target: "yandex-music",
+        href: "#",
       },
       {
         target: "pandora",
@@ -1071,6 +1142,64 @@ export async function seedDatabase() {
         },
       ],
     },
+    {
+      title: "Gazing at U Through a Smartphone Screen",
+      position: 1,
+      release: gazingAtUThroughASmartphoneScreen._id,
+      artists: [
+        {
+          artist: marblebust._id,
+          alias: "kolya",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src:
+            "https://cdn.neoplasm.xyz/releases/gazing-at-u-through-a-smartphone-screen/mp3/1.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src:
+            "https://cdn.neoplasm.xyz/releases/gazing-at-u-through-a-smartphone-screen/ogg/1.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src:
+            "https://cdn.neoplasm.xyz/releases/gazing-at-u-through-a-smartphone-screen/wav/1.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
+    {
+      title: "Crisis07",
+      position: 2,
+      release: gazingAtUThroughASmartphoneScreen._id,
+      artists: [
+        {
+          artist: marblebust._id,
+          alias: "kolya",
+        },
+      ],
+      featuring: [],
+      sources: [
+        {
+          src:
+            "https://cdn.neoplasm.xyz/releases/gazing-at-u-through-a-smartphone-screen/mp3/2.mp3",
+          type: "audio/mp3",
+        },
+        {
+          src:
+            "https://cdn.neoplasm.xyz/releases/gazing-at-u-through-a-smartphone-screen/ogg/2.ogg",
+          type: "audio/ogg",
+        },
+        {
+          src:
+            "https://cdn.neoplasm.xyz/releases/gazing-at-u-through-a-smartphone-screen/wav/2.wav",
+          type: "audio/wav",
+        },
+      ],
+    },
   ] as Track[])
 
   await ItemModel.create([
@@ -1115,6 +1244,34 @@ export async function seedDatabase() {
           shiped: false,
         },
       ],
+    },
+    {
+      slug: "gazing-at-u-through-a-smartphone-screen",
+      release: gazingAtUThroughASmartphoneScreen._id,
+      copies: [
+        {
+          _id: "4209348102a09234f80293b42b908903",
+          shiped: true,
+        },
+        {
+          _id: "4209234532047234f80293b42b908903",
+          shiped: false,
+        },
+      ],
+      html: `
+      <div style="margin: 2rem 1rem 0;text-align: center; ">
+        <p>
+          Get 15% off on any item in <a href="https://etherparfum.com/shop">éther</a
+          >
+          and 20% off on
+          <a href="https://neoplasm.bandcamp.com/merch/just-now-ago-silk-scarf"
+            >"Just Now Ago" Silk Scarf</a
+          > using promocode:
+        </p>
+        <p on:click={}  style="font-size:larger;margin: 1rem
+        ">GAZE</p>
+      </div>
+      `,
     },
   ] as Item[])
 }

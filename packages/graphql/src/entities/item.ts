@@ -20,6 +20,18 @@ export class Item {
   @Field(() => [ItemCopy])
   @prop({ required: true, type: () => [ItemCopy] })
   copies: ItemCopy[]
+
+  @Field({ nullable: true })
+  @prop({ required: false })
+  text?: string
+
+  @Field({ nullable: true })
+  @prop({ required: false })
+  html?: string
+
+  @Field(() => [String])
+  @prop({ required: false })
+  images?: string[]
 }
 
 export const ItemModel = getModelForClass(Item)

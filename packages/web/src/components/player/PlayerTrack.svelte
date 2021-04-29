@@ -10,15 +10,17 @@
 </script>
 
 <li class:playing class:current on:click>
-  <p><TrackString {...track} {showArtists} /></p>
+  <p class:current><TrackString {...track} {showArtists} {current} /></p>
 </li>
 
 <style>
   li {
     height: 1.6rem;
+    font-family: "Helvetica Neue";
+    font-size: 0.8rem;
     font-weight: 200;
     color: rgba(0, 0, 0, 0.8);
-    cursor: pointer;
+    /* cursor: pointer; */
     /* display: table-row; */
   }
 
@@ -27,11 +29,11 @@
     display: inline-block;
   } */
 
-  li.current {
-    font-family: HelveticaNeue, Helvetica, sans-serif;
+  .current {
+    /* font-family: "Helvetica Neue", Helvetica, sans-serif; */
     /* color: rgba(0, 0, 0, 0.8); */
-    font-weight: 400;
-    font-style: italic;
+    font-weight: bolder;
+    /* font-style: italic; */
     /* margin: calc(1em + 10px) 0 calc(1em + 10px) 0; */
     /* transition: margin .1s ease-in-out; */
   }

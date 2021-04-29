@@ -73,6 +73,4 @@
     height: 2.7rem;
     width: 2.7rem;
   }
-
-
 </style>
