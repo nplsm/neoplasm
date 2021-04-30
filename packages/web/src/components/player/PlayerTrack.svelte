@@ -20,7 +20,7 @@
     font-size: 0.8rem;
     font-weight: 200;
     color: rgba(0, 0, 0, 0.8);
-    /* cursor: pointer; */
+    cursor: pointer;
     /* display: table-row; */
   }
 

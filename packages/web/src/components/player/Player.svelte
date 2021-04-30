@@ -365,11 +365,17 @@
   .buttons > button {
     background: transparent;
     border: transparent;
-    fill: tomato;
+    fill: rgba(0, 0, 0, 0.54);
     margin: 0;
     padding: 0 0 0 0.5rem;
     width: 3.5rem;
     height: 3.5rem;
+    cursor: pointer;
+  }
+
+  .buttons > button:hover {
+    transform: scale(1.05);
+    transition: opacity 0.2s, transform 0.1s ease-in-out;
   }
 
   .buttons > button > svg {

@@ -206,6 +206,7 @@
     width: 52px;
     height: 52px;
     /* box-shadow: 0 3px 3px lightgray; */
+    cursor: pointer;
   }
 
   svg:active {
@@ -217,7 +218,7 @@
   }
 
   .background {
-    fill: black;
+    fill: rgba(0, 0, 0, 0.54);
   }
 
   .hamburger,
@@ -228,7 +229,7 @@
 
   .progress {
     fill: transparent;
-    stroke: tomato;
+    stroke: #001aff;
     stroke-linecap: round;
   }
 
