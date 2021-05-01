@@ -15,7 +15,7 @@
 
 <style>
   li {
-    height: 1.6rem;
+    min-height: 1.6rem;
     font-family: "Helvetica Neue";
     font-size: 0.8rem;
     font-weight: 200;
