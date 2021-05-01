@@ -143,7 +143,19 @@
   >
     <track kind="captions" />
     {#each track.sources as source}
-      <source src={source.src} type={source.type} />
+      {#if source.type === "audio/ogg"}
+        <source src={source.src} type={source.type} />
+      {/if}
+    {/each}
+    {#each track.sources as source}
+      {#if source.type === "audio/mp3"}
+        <source src={source.src} type={source.type} />
+      {/if}
+    {/each}
+    {#each track.sources as source}
+      {#if source.type === "audio/wav"}
+        <source src={source.src} type={source.type} />
+      {/if}
     {/each}
   </audio>
 {/each}
