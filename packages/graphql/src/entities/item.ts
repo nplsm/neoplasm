@@ -29,9 +29,13 @@ export class Item {
   @prop({ required: false })
   html?: string
 
-  @Field(() => [String])
+  @Field(() => [String], { nullable: true })
   @prop({ required: false })
   images?: string[]
+
+  @Field({ nullable: true })
+  @prop({ required: false })
+  download?: string
 }
 
 export const ItemModel = getModelForClass(Item)

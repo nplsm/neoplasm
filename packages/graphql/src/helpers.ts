@@ -1216,6 +1216,7 @@ export async function seedDatabase() {
           shiped: false,
         },
       ],
+      download: "https://cdn.neoplasm.xyz/releases/lifeoxetine/npl0002.zip",
     },
     {
       slug: "a-u-k",
@@ -1230,6 +1231,7 @@ export async function seedDatabase() {
           shiped: false,
         },
       ],
+      download: "https://cdn.neoplasm.xyz/releases/a-u-k/npl0003.zip",
     },
     {
       slug: "just-now-ago",
@@ -1244,6 +1246,7 @@ export async function seedDatabase() {
           shiped: false,
         },
       ],
+      download: "https://cdn.neoplasm.xyz/releases/just-now-ago/npl0005.zip",
     },
     {
       slug: "gazing-at-u-through-a-smartphone-screen",
@@ -1258,6 +1261,9 @@ export async function seedDatabase() {
           shiped: false,
         },
       ],
+      download:
+        "https://cdn.neoplasm.xyz/releases/gazing-at-u-through-a-smartphone-screen/npl0006.zip",
+
       html: `
       <div style="margin: 2rem 1rem 0;text-align: center; ">
         <p>

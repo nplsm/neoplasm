@@ -18,7 +18,7 @@
 
   let showMenu = false
 
-  $: showProgress = progressEnd ? true : false
+  $: showProgress = progressEnd && !showMenu ? true : false
 
   const progressThickness = 5
   const progressRadius = 50 - progressThickness / 2

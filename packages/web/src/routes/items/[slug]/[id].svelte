@@ -41,6 +41,7 @@
                 shiped
               }
               html
+              download
             }
           }
         `,
@@ -50,11 +51,11 @@
     if (res.status === 200) {
       const { data } = await res.json()
       const { item } = data
-      const { release, copies, html } = item
+      const { release, copies, html, download } = item
       const correctId = copies.some((copy) => copy._id === id)
       if (correctId) {
         release.tracks.sort((a, b) => a.position - b.position)
-        return { release, html }
+        return { release, html, download }
       }
     } else {
       this.error(404, "Page not found")
@@ -67,6 +68,7 @@
 
   export let release
   export let html
+  export let download
 </script>
 
 <svelte:head>
@@ -74,4 +76,4 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<Player {...release} {html} />
+<Player {...release} {html} {download} />

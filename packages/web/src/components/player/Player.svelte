@@ -10,6 +10,7 @@
   export let links
   export let title = ""
   export let html
+  export let download = "#"
 
   let showControls = false
 
@@ -177,7 +178,7 @@
             </svg>
           {/if}
         </button>
-        <!-- <button
+        <a href={download}
           ><svg
             width="20"
             height="20"
@@ -188,7 +189,7 @@
               d="M10 0C4.49 0 0 4.49 0 10C0 15.51 4.49 20 10 20C15.51 20 20 15.51 20 10C20 4.49 15.51 0 10 0ZM9 8V4H11V8H14L10 12L6 8H9ZM15 15H5V13H15V15Z"
             />
           </svg>
-        </button> -->
+        </a>
       </div>
     </div>
   </div>
@@ -362,23 +363,29 @@
     /* margin: 0 auto; */
   }
 
-  .buttons > button {
+  .buttons > button,
+  .buttons > a {
     background: transparent;
     border: transparent;
     fill: rgba(0, 0, 0, 0.54);
     margin: 0;
-    padding: 0 0 0 0.5rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    cursor: pointer;
+    padding: 0 0 0 8px;
+    width: 56px;
+    height: 56px;
   }
 
-  .buttons > button:hover {
+  .buttons > a {
+    width: 48px;
+  }
+
+  .buttons > button:hover,
+  .buttons > a:hover {
     transform: scale(1.05);
     transition: opacity 0.2s, transform 0.1s ease-in-out;
   }
 
-  .buttons > button > svg {
+  .buttons > button > svg,
+  .buttons > a > svg {
     width: 100%;
     height: 100%;
   }
